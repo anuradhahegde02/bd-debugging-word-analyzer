@@ -25,7 +25,7 @@ public class WordAnalyzer {
      * @return the first repeated character, or 0 if none found.
      */
     public char firstRepeatedCharacter() {
-        for (int i = 1; i < word.length() - 1; i++) {
+        for (int i = 0; i < word.length() - 1; i++) {
             char current = word.charAt(i);
             char adjacent = word.charAt(i + 1);
             if (current == adjacent) {
@@ -45,9 +45,9 @@ public class WordAnalyzer {
      * @return the first multiply occurring character, or 0 if none found
      */
     public char firstMultipleCharacter() {
-        for (int i = 0; i < word.length(); i++) {
+        for (int i = 0; i <=word.length()-1; i++) {
             char ch = word.charAt(i);
-            if (find(ch, i) >= 0) {
+            if (find(ch, i+1) >= 0) {
                 return ch;
             }
         }
@@ -62,7 +62,7 @@ public class WordAnalyzer {
      * @return -1 if c is not found, or the index >= start where it occurs.
      */
     private int find(char c, int start) {
-        for (int i = start; i < word.length(); i++) {
+        for (int i = start; i <=word.length()-1; i++) {
             if (word.charAt(i) == c) {
                 return i;
             }
@@ -73,7 +73,7 @@ public class WordAnalyzer {
     /**
      * Counts the groups of repeated characters. For example, "mississippi!!!" has
      * four such groups: ss, ss, pp and !!!.  "Mooo" has only one group, "ooo".
-     * "Frodo" has 0 groups of repeated characters.
+     *      * "Frodo" has 0 groups of repeated characters.
      *
      * @return the number of repeated character groups
      */
@@ -81,8 +81,12 @@ public class WordAnalyzer {
         int numGroups = 0;
         for (int i = 1; i < word.length() - 1; i++) {
             // Is the next character part of the repeat?
+            if (i == 1 && repeatsPreviousCharacter(i)) {
+                numGroups++;
+            }
             if (word.charAt(i) == word.charAt(i + 1)) {
                 // Is this the start of the repeat?
+
                 if (!repeatsPreviousCharacter(i)) {
                     numGroups++;
                 }

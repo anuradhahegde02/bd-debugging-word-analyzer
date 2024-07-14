@@ -26,11 +26,8 @@ public class WordAnalyzerTest {
         WordAnalyzer analyzer = new WordAnalyzer(analyzed);
         char actual = analyzer.firstRepeatedCharacter();
         if (actual == expected) {
-            System.out.println(String.format("PASS: firstRepeatedCharacter for \"%s\" is '%c'.", analyzed, actual));
             return true;
         } else {
-            System.out.println(String.format("FAIL: expected firstRepeatedCharacter for \"%s\" to be '%c', got '%c'!",
-                                             analyzed, expected, actual));
             return false;
         }
     }
@@ -46,11 +43,10 @@ public class WordAnalyzerTest {
         WordAnalyzer analyzer = new WordAnalyzer(analyzed);
         char actual = analyzer.firstMultipleCharacter();
         if (actual == expected) {
-            System.out.println(String.format("PASS: firstMultipleCharacter for \"%s\" is '%c'.", analyzed, actual));
             return true;
         } else {
             System.out.println(String.format("FAIL: expected firstMultipleCharacter for \"%s\" to be '%c', got '%c'!",
-                                             analyzed, expected, actual));
+                    analyzed, expected, actual));
             return false;
         }
     }
@@ -66,11 +62,10 @@ public class WordAnalyzerTest {
         WordAnalyzer analyzer = new WordAnalyzer(analyzed);
         int actual = analyzer.countRepeatedCharacters();
         if (actual == expected) {
-            System.out.println(String.format("PASS: countRepeatedCharacters for \"%s\" is %d.", analyzed, actual));
             return true;
         } else {
             System.out.println(String.format("FAIL: expected countRepeatedCharacters for \"%s\" to be %d, got %d!",
-                                             analyzed, expected, actual));
+                    analyzed, expected, actual));
             return false;
         }
     }
